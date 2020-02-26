@@ -85,7 +85,7 @@ stages:
         # Write backend.tfvars.
         echo 'resource_group_name = "'$(ResourceGroup)'"' | tee backend.tfvars
         echo 'storage_account_name = "'$(StorageAccountName)'"' | tee -a backend.tfvars
-        echo 'container_name = "tfstate"' | tee -a backend.tfvars
+        echo 'container_name = "''$(BlobContainer)''"' | tee -a backend.tfvars
         echo 'key = "terraform.tfstate"' | tee -a backend.tfvars
 
         # Initialize Terraform.
